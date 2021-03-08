@@ -16,11 +16,11 @@ HTML and can be configured through a companion Custom Browser Dock.
 Usage
 -----
 
-1. Clone the **OBS-Banner** sources:<br/>
-   `git clone --depth 1 https://github.com/rse/obs-banner`
+1. Download and unpack the **OBS-Banner** sources:<br/>
+   https://github.com/rse/obs-banner/archive/master.zip
 
-2. Clone the **OBS-Scripts** sources:<br/>
-   `git clone --depth 1 https://github.com/rse/obs-scripts`
+2. Download and unpack the **OBS-Scripts** sources:<br/>
+   https://github.com/rse/obs-scripts/archive/master.zip
 
 3. Add the Custom Browser Dock to your OBS Studio UI:<br/>
    **View** &rarr; **Docks** &rarr; **Custom Browser Docks...**
