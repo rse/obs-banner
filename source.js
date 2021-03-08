@@ -139,7 +139,6 @@ $(document).ready(() => {
     /*  user keyboard interaction  */
     let active = false
     window.addEventListener("keyup", (ev) => {
-        $(".content", el).text("ev.key=" + ev.key)
         if (ev.key === "a") {
             /*  toggle banner (show or hide)  */
             active = !active
