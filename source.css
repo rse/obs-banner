@@ -1,0 +1,86 @@
+
+/*  import font  */
+@import "3rdparty/typopro-sourcesanspro/TypoPRO-SourceSansPro.css";
+
+/*  style canvas  */
+body {
+    background-color: transparent;
+    width:  100vw;
+    height: 100vh;
+    border: 0;
+    margin: 0;
+}
+
+/*  style banner  */
+.banner {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+}
+.banner .door {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+    width: 6px;
+    z-index: 100;
+}
+.banner .door .bar {
+    position: absolute;
+    width: 6px;
+}
+.banner .content {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+    padding-left:  15px;
+    padding-right: 15px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+.banner .content ul {
+    margin-top: 0;
+    margin-bottom: 0;
+    /* list-style: square inside none; */
+    list-style: none;
+    padding-left: 4px;
+}
+.banner .content ul li {
+    padding-left: 0px;
+}
+.banner .content ul li::before {
+    content: "\2022";
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+}
+.banner.banner-l .door {
+    order: 1;
+}
+.banner.banner-l .content {
+    order: 2;
+}
+.banner.banner-r .door {
+    order: 2;
+}
+.banner.banner-r .content {
+    order: 1;
+}
+
+/*  theme banner  */
+.banner .door .bar {
+    background: linear-gradient(180deg, #ff3333, #cc0000);
+}
+.banner .content {
+    background: linear-gradient(180deg, #ffffffc0, #f8f8f8c0);
+    color: "#000000";
+    font-family: "TypoPRO Source Sans Pro";
+    font-size: 12pt;
+    font-weight: 600;
+}
+.banner .content ul li::before {
+    color: #cc0000;
+}
+
