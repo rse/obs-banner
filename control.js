@@ -13,8 +13,8 @@ $(document).ready(() => {
     }
 
     /*  establish channels to source  */
-    const bcs = new BroadcastChannel("topics-source")
-    const bcc = new BroadcastChannel("topics-control")
+    const bcs = new BroadcastChannel("obs-banner-source")
+    const bcc = new BroadcastChannel("obs-banner-control")
 
     /*  update configuration from UI form  */
     const update = () => {

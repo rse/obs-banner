@@ -3,6 +3,7 @@
 $(document).ready(() => {
     /*  grab the elements in the DOM fragment  */
     const el        = $(".banner").get(0)
+    const elDoor    = $(".door", el).get(0)
     const elBar     = $(".door .bar", el).get(0)
     const elContent = $(".content", el).get(0)
 
@@ -51,31 +52,30 @@ $(document).ready(() => {
             .removeClass("banner-l")
             .removeClass("banner-r")
             .addClass(`banner-${xd}`)
-        $(".content", el)
+        $(elContent)
             .css("width",  `${15 + w + 15}px`)
             .css("height", `${sh}px`)
-        $(".door", el)
+        $(elDoor)
             .css("height", `${sh}px`)
-        $(".door .bar", el)
+        $(elBar)
             .css("height", `${sh}px`)
 
         /*  update fragment content  */
-        $(".content", el)
-            .html(cfg.text)
+        $(elContent).html(cfg.text)
     }
 
     /*  show banner  */
-    const show = (quick) => {
+    const show = (quick = false) => {
         if (quick) {
             /*  show quickly (no animation at all)  */
-            $(".door .bar", el).css("top", 0)
-            $(".content", el).css("left", 0)
+            $(elBar).css("top", 0)
+            $(elContent).css("left", 0)
             return
         }
 
         /*  initialize animation positions  */
-        $(".door .bar", el).css("top", yd === "t" ? -sh : sh)
-        $(".content", el).css("left", xd === "l" ? -sw : sw)
+        $(elBar).css("top", yd === "t" ? -sh : sh)
+        $(elContent).css("left", xd === "l" ? -sw : sw)
 
         /*  create animation timeline  */
         const tl = anime.timeline({
@@ -101,17 +101,17 @@ $(document).ready(() => {
     }
 
     /*  hide banner  */
-    const hide = (quick) => {
+    const hide = (quick = false) => {
         if (quick) {
             /*  hide quickly (no animation at all)  */
-            $(".door .bar", el).css("top", yd === "t" ? -sh : sh)
-            $(".content", el).css("left", xd === "l" ? -sw : sw)
+            $(elBar).css("top", yd === "t" ? -sh : sh)
+            $(elContent).css("left", xd === "l" ? -sw : sw)
             return
         }
 
         /*  initialize animation positions  */
-        $(".door .bar", el).css("top", yd === "t" ? sh : -sh)
-        $(".content", el).css("left", xd === "l" ? sw : -sw)
+        $(elBar).css("top", yd === "t" ? sh : -sh)
+        $(elContent).css("left", xd === "l" ? sw : -sw)
 
         /*  create animation timeline  */
         const tl = anime.timeline({
@@ -150,8 +150,8 @@ $(document).ready(() => {
     })
 
     /*  establish channels to control  */
-    const bcs = new BroadcastChannel("topics-source")
-    const bcc = new BroadcastChannel("topics-control")
+    const bcs = new BroadcastChannel("obs-banner-source")
+    const bcc = new BroadcastChannel("obs-banner-control")
 
     /*  receive control command  */
     bcs.addEventListener("message", (ev) => {
@@ -177,8 +177,7 @@ $(document).ready(() => {
 
     /*  initialize our configuration at least once  */
     reconfigure({ text: "", x: 100, y: 100, w: 400, h: 100 })
-    // hide(true)
-    show(true)
+    hide(true)
 
     /*  poll control once to be updated with real configuration  */
     bcc.postMessage({ command: "poll" })
