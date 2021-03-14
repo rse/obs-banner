@@ -1,6 +1,6 @@
 {
     "name":                 "obs-banner",
-    "version":              "0.9.3",
+    "version":              "0.9.4",
     "description":          "OBS Banner",
     "main":                 "source.html",
     "keywords":             [ "obs", "studio", "banner" ],

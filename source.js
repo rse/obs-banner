@@ -193,10 +193,10 @@ $(document).ready(() => {
         x: 100, y: 100,
         w: 400, h: 100,
         colbar1: "ff3333", colbar2: "cc0000",
-        colbox1: "ffffff", colbox2: "f8f8f8",
+        colbox1: "ffffffc0", colbox2: "f8f8f8c0",
         coltxt1: "000000", coltxt2: "cc0000",
-        fonts: "12pt", fontw: "600",
-        fontf: "Source Sans Pro"
+        fonts: "12pt", fontw: "normal",
+        fontf: "Source Sans Pro:normal,italic,bold,bolditalic"
     })
     hide(true)
 
