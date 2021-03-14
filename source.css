@@ -74,7 +74,7 @@ body {
     color: "#000000";
     font-family: "Caveat";
     font-size: 12pt;
-    font-weight: 600;
+    font-weight: normal;
 }
 .banner .content em {
     font-style: normal;
