@@ -1,7 +1,4 @@
 
-/*  import font  */
-@import "3rdparty/typopro-sourcesanspro/TypoPRO-SourceSansPro.css";
-
 /*  style canvas  */
 body {
     background-color: transparent;
@@ -43,7 +40,6 @@ body {
 .banner .content ul {
     margin-top: 0;
     margin-bottom: 0;
-    /* list-style: square inside none; */
     list-style: none;
     padding-left: 4px;
 }
@@ -76,11 +72,11 @@ body {
 .banner .content {
     background: linear-gradient(180deg, #ffffffc0, #f8f8f8c0);
     color: "#000000";
-    font-family: "TypoPRO Source Sans Pro";
+    font-family: "Caveat";
     font-size: 12pt;
     font-weight: 600;
 }
-.banner .content ul li::before {
-    color: #cc0000;
+.banner .content em {
+    font-style: normal;
 }
 

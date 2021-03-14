@@ -2,6 +2,7 @@
 /*  await DOM to be ready...  */
 $(document).ready(() => {
     /*  grab the elements in the DOM fragment  */
+    const elGFCSS   = $("#gfcss").get(0)
     const el        = $(".banner").get(0)
     const elDoor    = $(".door", el).get(0)
     const elBar     = $(".door .bar", el).get(0)
@@ -45,6 +46,12 @@ $(document).ready(() => {
         sw = 6 + 15 + w + 15
         sh = 6 + h + 6
 
+        /*  update font reference */
+        $(elGFCSS).attr("href", `https://fonts.googleapis.com/css?family=${cfg.fontf.replace(/\s+/g, "+")}`)
+
+        /*  update fragment content  */
+        $(elContent).html(cfg.text)
+
         /*  style DOM fragment  */
         $(el)
             .css("width",  `${sw}px`)
@@ -55,13 +62,18 @@ $(document).ready(() => {
         $(elContent)
             .css("width",  `${15 + w + 15}px`)
             .css("height", `${sh}px`)
+            .css("background", `linear-gradient(180deg, #${cfg.colbox1}, #${cfg.colbox2})`)
+            .css("color", `#${cfg.coltxt1}`)
+            .css("font-family", `${cfg.fontf}`)
+            .css("font-size", `${cfg.fonts}`)
+            .css("font-weight", `${cfg.fontw}`)
+        $("em", elContent)
+            .css("color", `#${cfg.coltxt2}`)
         $(elDoor)
             .css("height", `${sh}px`)
         $(elBar)
             .css("height", `${sh}px`)
-
-        /*  update fragment content  */
-        $(elContent).html(cfg.text)
+            .css("background", `linear-gradient(180deg, #${cfg.colbar1}, #${cfg.colbar2})`)
     }
 
     /*  show banner  */
@@ -176,7 +188,16 @@ $(document).ready(() => {
     })
 
     /*  initialize our configuration at least once  */
-    reconfigure({ text: "", x: 100, y: 100, w: 400, h: 100 })
+    reconfigure({
+        text: "",
+        x: 100, y: 100,
+        w: 400, h: 100,
+        colbar1: "ff3333", colbar2: "cc0000",
+        colbox1: "ffffff", colbox2: "f8f8f8",
+        coltxt1: "000000", coltxt2: "cc0000",
+        fonts: "12pt", fontw: "600",
+        fontf: "Source Sans Pro"
+    })
     hide(true)
 
     /*  poll control once to be updated with real configuration  */
